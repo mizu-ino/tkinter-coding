@@ -1,7 +1,10 @@
 import tkinter as tk
 import time
 
-
+###
+from PIL import Image
+from PIL import ImageTk
+###
 
 window_width  = 700
 window_height = 500
@@ -36,23 +39,15 @@ def main():
 
     circle = create_circle(canvas, co["x"], co["y"], co["r"], fill="orange")
 
-    #---３点指定
-    canvas.create_polygon(10, 10,
-                      110, 10,
-                      60, 100, fill="white")
-    
-    #---６点指定
-    canvas.create_polygon(450, 60,
-                      425, 17,
-                      375, 17,
-                      350, 60,
-                      375, 103,
-                      425, 103, fill="green")
-
     window.mainloop()
 
+    ##追加分
+    root = tk.Tk()
+    root.geometry("700x400")
 
+    img = ImageTk.PhotoImage(file="space.jpeg")
 
+    canvas.create_image(0, 0, image=img)
 
 if __name__ == "__main__":
     main()
